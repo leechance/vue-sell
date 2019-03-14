@@ -1,12 +1,18 @@
 <template>
+	<!--点击头部触发详情 -->
   <div class="header" @click="showDetail">
+		
+		<!--内容-->
     <div class="content-wrapper">
+			
+			<!--头部图片-->
       <div class="avatar">
         <img
           width="64"
           height="64"
           :src="seller.avatar" alt="">
       </div>
+		  
       <div class="content">
         <div class="title">
           <span class="brand"></span>
@@ -15,6 +21,8 @@
         <div class="description">
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
+				<!--减 根据不同的 size和type,给support-ico 的span标签设置不同的类，并且根据不同的类加载不同的本地图片-->
+				<!-- 条件渲染-->
         <div class="support" v-if="seller.supports">
           <support-ico
             :size="1"
@@ -28,10 +36,16 @@
         </div>
       </div>
     </div>
+		<!--公告-->
     <div class="bulletin-wrapper">
-      <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+			<!--公告图片-->
+      <span class="bulletin-title"></span>
+			<!--公告文字-->
+			<span class="bulletin-text">{{seller.bulletin}}</span>
+			<!--文字右边的小箭头-->
       <i class="icon-keyboard_arrow_right"></i>
     </div>
+		<!--背景图片，跟所在div 一样大，100% 相对于父标签说的，图片是seller中获取-->
     <div class="background">
       <img
         width="100%"
@@ -48,6 +62,7 @@
     name: 'v-header',
     props: {
       seller: {
+				//seller的数据类型是对象
         type: Object,
         default () {
           return {}
@@ -55,10 +70,12 @@
       },
     },
     components: {
+			//引入 SupportIco 组件
       SupportIco,
     },
     methods: {
       showDetail () {
+				// HeaderDetail 属于CreateApi 组件
         this.headerDetailComp = this.headerDetailComp || this.$createHeaderDetail({
           $props: {
             seller: 'seller',
@@ -69,15 +86,17 @@
     },
   }
 </script>
+
+<!--引入样式文件cube-ui 内置样式和常用的颜色值-->
 <style lang="stylus">
   @import "~assets/stylus/mixin"
   @import "~assets/stylus/variable"
 
   .header
-    position relative
-    overflow: hidden
+    position relative //相对定位元素的定位是相对与其它正常位置的元素
+    overflow: hidden //overflow 属性可以控制内容溢出元素框时在对应的元素区间内添加滚动条,内容会被修剪，并且其余内容是不可见的。
     color $color-white
-    background $color-background-ss
+    background $color-background-ss //设置元素的背景颜色
     .content-wrapper
       position relative
       display flex

@@ -1,13 +1,13 @@
 import request from 'api/request'
 
 export default class ApiServer {
-  // 获取商家信息
+  // 获取商家信息，传入参数params
   static getSeller (params) {
     let url = `seller.json`
     return request({
-      url: url,
-      method: 'get',
-      params: params,
+      url: url, //url
+      method: 'get',//get方法
+      params: params, //参数
     })
   }
 

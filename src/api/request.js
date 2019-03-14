@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+//使用axios 创建一个Http服务，传入的参数 url 会和baseURL进行拼接
 const service = axios.create({
   baseURL: 'https://vue-sell-1256738511.cos.ap-chengdu.myqcloud.com/', // api的base_url
   timeout: 5000, // request timeout

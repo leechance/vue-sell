@@ -3,6 +3,7 @@
     class="star"
     :class="starType"
   >
+	<!--遍历 class 数组-->
     <span
       v-for="(item,index) in itemClasses"
       :key="index"
