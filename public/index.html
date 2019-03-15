@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+	<!--模式Edge 模式告诉 IE 以最高级模式渲染文档，也就是任何 IE 版本都以当前版本所支持的最高级标准模式渲染，避免版本升级造成的影响。简单的说，
+	就是什么版本 IE 就用什么版本的标准模式渲染。处理IE浏览器的兼容性的-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+		
+	<!--用于在浏览器地址栏里显示的图片 这样写了后，在浏览器的地址栏里，
+	图片会显示成你给的路径的这个图片，不过貌似这个路径不能改，
+	只能是网址根目录下的favicon.ico文件，而且现在好像不用写这个，
+	只要根目录下有这个文件，浏览器会自动读取出来并显示。
+	单独访问 http://localhost:8080/favicon.png 就是饿了吗的图标
+	-->			
   <link rel="icon" href="<%= BASE_URL %>favicon.png">
   <title>vue-cube-sell</title>
 </head>
 <body>
+	
+<!--noscript 元素用来定义在脚本未被执行时的替代内容（文本）。
+此标签可被用于可识别 <script> 元素用来定义在脚本未被执行时的替代内容（文本）。 
+标签但无法支持其中的脚本的浏览器。如果浏览器支持脚本，则不会显示noscript 标签的内容。
+-->
 <noscript>
   <strong>We're sorry but vue-cube-sell doesn't work properly without JavaScript enabled. Please enable it to
     continue.</strong>
