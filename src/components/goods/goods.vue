@@ -1,6 +1,9 @@
 <template>
   <div class="goods">
     <div class="scroll-nav-wrapper">
+			<!--
+			side 表示侧边栏效果
+			-->
       <cube-scroll-nav
         side
         :data=goods
